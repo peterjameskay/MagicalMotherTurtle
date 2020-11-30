@@ -3,40 +3,44 @@ import turtle
 import time
 import random
 
-#These next "setups" needed to be without functions so I could use them in all other functions
 #Screen Setup
 screen = turtle.Screen()
-screen.title('Magical Mother Turtle')
-screen.bgcolor('blue')
-screen.setup(600,600)
-screen.tracer(0)
-
 #Mom Turtle Setup
 mom = turtle.Turtle()
-mom.speed(0)
-mom.shape('turtle')
-mom.color('green')
-mom.penup()
-mom.goto(0, 100)
-mom.direction = "stop"
-
 #Egg Setup
 egg = turtle.Turtle()
-egg.speed(0)
-egg.shape('circle')
-egg.color('white')
-egg.penup()
-egg.shapesize(0.75, 0.50)
-egg.goto(0,0)
-
 #Score Setup
 pen = turtle.Turtle()
-pen.speed(0)
-pen.shape("square")
-pen.color("white")
-pen.penup()
-pen.hideturtle()
-pen.goto(0, 260)
+#Baby Setup
+baby = turtle.Turtle()
+
+def setup():
+    screen.title('Magical Mother Turtle')
+    screen.bgcolor('blue')
+    screen.setup(600,600)
+    screen.tracer(0)
+    mom.speed(0)
+    mom.shape('turtle')
+    mom.color('green')
+    mom.penup()
+    mom.goto(0, 100)
+    mom.direction = "stop"
+    egg.speed(0)
+    egg.shape('circle')
+    egg.color('white')
+    egg.penup()
+    egg.shapesize(0.75, 0.50)
+    egg.goto(0,0)
+    pen.speed(0)
+    pen.shape("square")
+    pen.color("white")
+    pen.penup()
+    pen.hideturtle()
+    pen.goto(0, 260)
+    baby.penup()
+    baby.fillcolor('blue')
+    baby.pencolor('blue')
+    baby.goto(300,300)
 
 #Movement Config
 def move():
@@ -75,7 +79,6 @@ def eggs_to_babies(babies):
         y = random.randint(-280, 240)
         egg.goto(x, y)
         #Baby Setup
-        baby = turtle.Turtle()
         baby.speed(0)
         baby.shape("turtle")
         baby.color(color[random.randint(0,6)])
@@ -117,6 +120,8 @@ def main():
     play_again = 'Y'
     #Game Loop 1 - Initalizing
     while play_again != 'N':
+        screen.reset()
+        setup()
         game_over = False
         mom.direction = "stop"
         #Reset Score while keeping High Score
