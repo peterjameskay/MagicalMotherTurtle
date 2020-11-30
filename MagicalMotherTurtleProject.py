@@ -3,40 +3,45 @@ import turtle
 import time
 import random
 
-#Screen Setup
+#Screen Declaration
 screen = turtle.Screen()
-#Mom Turtle Setup
+#Mom Turtle Declaration
 mom = turtle.Turtle()
-#Egg Setup
+#Egg Declaration
 egg = turtle.Turtle()
-#Score Setup
+#Score Declaration
 pen = turtle.Turtle()
-#Baby Setup
+#Baby Declaration
 baby = turtle.Turtle()
 
 def setup():
+    #Screen Setup
     screen.title('Magical Mother Turtle')
     screen.bgcolor('blue')
     screen.setup(600,600)
     screen.tracer(0)
+    #Mom Turtle Setup
     mom.speed(0)
     mom.shape('turtle')
     mom.color('green')
     mom.penup()
     mom.goto(0, 100)
     mom.direction = "stop"
+    #Egg Setup
     egg.speed(0)
     egg.shape('circle')
     egg.color('white')
     egg.penup()
     egg.shapesize(0.75, 0.50)
     egg.goto(0,0)
+    #Score Setup
     pen.speed(0)
     pen.shape("square")
     pen.color("white")
     pen.penup()
     pen.hideturtle()
     pen.goto(0, 260)
+    #Baby Setup
     baby.penup()
     baby.fillcolor('blue')
     baby.pencolor('blue')
